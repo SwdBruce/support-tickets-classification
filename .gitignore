@@ -104,4 +104,5 @@ ENV/
 all_tickets.csv
 *.model
 .vscode
+venv
 

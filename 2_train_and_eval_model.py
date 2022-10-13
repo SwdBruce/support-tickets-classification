@@ -26,7 +26,7 @@ class StemmedCountVectorizer(CountVectorizer):
         return lambda doc: ([stemmer.stem(w) for w in analyzer(doc)])
 
 
-column_to_predict = "ticket_type"
+column_to_predict = "urgency"
 # Supported datasets:
 # ticket_type
 # business_service
@@ -200,16 +200,11 @@ if __name__ == '__main__':
     if use_grid_search:
         pickle.dump(
             gs_clf,
-            open(os.path.join(
-                '.', 'outputs', column_to_predict+".model"),
-                'wb'
+            open(os.path.join('webservice/models/', column_to_predict+".model"),'wb'
             )
         )
     else:
         pickle.dump(
             text_clf,
-            open(os.path.join(
-                '.', 'outputs', column_to_predict+".model"),
-                'wb'
-            )
+            open(os.path.join('webservice/models/', column_to_predict+".model"), 'wb')
         )
